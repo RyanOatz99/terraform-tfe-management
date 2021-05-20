@@ -7,9 +7,9 @@ resource "tfe_organization" "this" {
 }
 
 resource "tfe_organization_membership" "this" {
-  for_each     = toset(var.organization.members)
+  for_each     = var.organization.members
   organization = tfe_organization.this.id
-  email        = each.value
+  email        = each.key
 }
 
 resource "tfe_team" "this" {
@@ -19,10 +19,10 @@ resource "tfe_team" "this" {
   visibility   = each.value.visibility
 }
 
-resource "tfe_team_members" "this" {
-  for_each  = var.teams
-  team_id   = tfe_team.this[each.key].id
-  usernames = each.value.members
+resource "tfe_team_organization_member" "this" {
+  for_each                   = var.organization.members
+  team_id                    = tfe_team.this[each.value.team].id
+  organization_membership_id = tfe_organization_membership.this[each.key].id
 }
 
 resource "tfe_oauth_client" "this" {

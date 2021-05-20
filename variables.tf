@@ -6,7 +6,10 @@ variable "organization" {
     name                     = string
     email                    = string
     collaborator_auth_policy = string
-    members                  = list(string)
+    members = map(object({
+      # key = name
+      team = string
+    }))
   })
 }
 
@@ -15,7 +18,6 @@ variable "teams" {
   type = map(object({
     # key = name
     visibility = string
-    members    = list(string)
   }))
   default = {}
 }

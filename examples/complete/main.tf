@@ -13,12 +13,34 @@ module "complete" {
     ]
   }
 
+  oauth_clients = {
+    "github" = {
+      api_url          = "https://api.github.com"
+      http_url         = "https://github.com"
+      oauth_token      = "ghp_token"
+      service_provider = "github"
+    },
+  }
+
+  registry_modules = {
+    "tf-complete-demo/terraform-tfe-management" = {
+      identifier     = "tf-complete-demo/terraform-tfe-management"
+      oauth_token_id = "github"
+    },
+  }
+
   workspaces = {
     "tf-complete-demo-workspace1" = {
       description       = "Complete demo workspace with latest Terraform version"
       execution_mode    = "remote"
       terraform_version = null # latest
-      vcs_repo          = {}
+      vcs_repo = {
+        "github" = {
+          identifier         = "tf-complete-demo/tf-complete-demo-workspace1"
+          branch             = "main"
+          ingress_submodules = false
+        }
+      }
     },
 
     "tf-complete-demo-workspace2" = {

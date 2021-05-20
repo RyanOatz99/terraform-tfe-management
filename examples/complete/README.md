@@ -1,7 +1,7 @@
 [//]: # ( vim: set ft=markdown : )
-# Simple
+# Complete
 
-Example for Terraform Cloud Organization & Workspaces
+Example for Terraform Cloud Organization, OAuth, Registry & Workspaces
 
 ## Usage
 

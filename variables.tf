@@ -37,8 +37,9 @@ variable "registry_modules" {
   description = "Manage private module registry."
   type = map(object({
     # key = display_identifier
-    identifier     = string
-    oauth_token_id = string
+    identifier         = string
+    oauth_token_client = string
+    oauth_token_id     = string
   }))
   default = {}
 }
@@ -53,10 +54,11 @@ variable "workspaces" {
     execution_mode     = string
     terraform_version  = string
     vcs_repo = map(object({
-      # key = oauth_client
-      identifier         = string
+      # key = identifier
       branch             = string
       ingress_submodules = bool
+      oauth_token_client = string
+      oauth_token_id     = string
     }))
   }))
 }

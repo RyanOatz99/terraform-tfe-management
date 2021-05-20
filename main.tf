@@ -39,7 +39,7 @@ resource "tfe_registry_module" "this" {
   vcs_repo {
     display_identifier = each.key
     identifier         = each.value.identifier
-    oauth_token_id     = tfe_oauth_client.this[each.value.oauth_token_id].oauth_token_id
+    oauth_token_id     = each.value.oauth_token_client != null ? tfe_oauth_client.this[each.value.oauth_token_client].oauth_token_id : each.value.oauth_token_id
   }
 }
 
@@ -64,10 +64,10 @@ resource "tfe_workspace" "this" {
   dynamic "vcs_repo" {
     for_each = each.value.vcs_repo
     content {
-      identifier         = vcs_repo.value.identifier
+      identifier         = vcs_repo.key
       branch             = vcs_repo.value.branch
       ingress_submodules = vcs_repo.value.ingress_submodules
-      oauth_token_id     = tfe_oauth_client.this[vcs_repo.key].oauth_token_id
+      oauth_token_id     = each.value.oauth_token_client != null ? tfe_oauth_client.this[each.value.oauth_token_client].oauth_token_id : each.value.oauth_token_id
     }
   }
 }

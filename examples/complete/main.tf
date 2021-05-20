@@ -28,8 +28,9 @@ module "complete" {
 
   registry_modules = {
     "tf-complete-demo/terraform-tfe-management" = {
-      identifier     = "tf-complete-demo/terraform-tfe-management"
-      oauth_token_id = "github"
+      identifier         = "tf-complete-demo/terraform-tfe-management"
+      oauth_token_client = "github"
+      oauth_token_id     = null
     },
   }
 
@@ -39,10 +40,11 @@ module "complete" {
       execution_mode    = "remote"
       terraform_version = null # latest
       vcs_repo = {
-        "github" = {
-          identifier         = "tf-complete-demo/tf-complete-demo-workspace1"
+        "tf-complete-demo/tf-complete-demo-workspace1" = {
           branch             = "main"
           ingress_submodules = false
+          oauth_token_client = "github"
+          oauth_token_id     = null
         }
       }
     },

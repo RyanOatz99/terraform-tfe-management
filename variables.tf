@@ -10,6 +10,16 @@ variable "organization" {
   })
 }
 
+variable "teams" {
+  description = "Manage teams."
+  type = map(object({
+    # key = name
+    visibility = string
+    members    = list(string)
+  }))
+  default = {}
+}
+
 variable "oauth_clients" {
   description = "Manage OAuth Client connection between an organization and a VCS provider."
   type = map(object({

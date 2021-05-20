@@ -12,6 +12,19 @@ resource "tfe_organization_membership" "this" {
   email        = each.value
 }
 
+resource "tfe_team" "this" {
+  for_each     = var.teams
+  name         = each.key
+  organization = tfe_organization.this.id
+  visibility   = each.value.visibility
+}
+
+resource "tfe_team_members" "this" {
+  for_each  = var.teams
+  team_id   = tfe_team.this[each.key].id
+  usernames = each.value.members
+}
+
 resource "tfe_oauth_client" "this" {
   for_each         = var.oauth_clients
   organization     = tfe_organization.this.id

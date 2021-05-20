@@ -27,6 +27,8 @@ The following resources are used by this module:
 - [tfe_organization.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.2/docs/resources/organization) (resource)
 - [tfe_organization_membership.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.2/docs/resources/organization_membership) (resource)
 - [tfe_registry_module.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.2/docs/resources/registry_module) (resource)
+- [tfe_team.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.2/docs/resources/team) (resource)
+- [tfe_team_organization_member.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.2/docs/resources/team_organization_member) (resource)
 - [tfe_workspace.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.2/docs/resources/workspace) (resource)
 
 ## Required Inputs
@@ -44,7 +46,10 @@ object({
     name                     = string
     email                    = string
     collaborator_auth_policy = string
-    members                  = list(string)
+    members = map(object({
+      # key = name
+      team = string
+    }))
   })
 ```
 
@@ -101,6 +106,21 @@ map(object({
     # key = display_identifier
     identifier     = string
     oauth_token_id = string
+  }))
+```
+
+Default: `{}`
+
+### <a name="input_teams"></a> [teams](#input_teams)
+
+Description: Manage teams.
+
+Type:
+
+```hcl
+map(object({
+    # key = name
+    visibility = string
   }))
 ```
 

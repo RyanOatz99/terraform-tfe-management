@@ -3,6 +3,10 @@
 
 Example for Terraform Cloud Organization, OAuth, Registry & Workspaces
 
+## Warning
+
+The team `owners` must be imported!
+
 ## Usage
 
 To run this example you need to execute:

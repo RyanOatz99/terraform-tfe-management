@@ -7,10 +7,14 @@ module "simple" {
     name                     = "tf-simple-demo-org"
     email                    = "tf-owner@your-domain"
     collaborator_auth_policy = "password"
-    members = [
-      "tf-owner2@your-domain",
-      "tf-owner3@your-domain",
-    ]
+    members = {
+      "tf-owner2@your-domain" = { team = "owners" },
+      "tf-owner3@your-domain" = { team = "owners" },
+    }
+  }
+
+  teams = {
+    "owners" = { visibility = "secret" }
   }
 
   workspaces = {

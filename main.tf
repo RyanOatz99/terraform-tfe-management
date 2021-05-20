@@ -44,20 +44,20 @@ resource "tfe_registry_module" "this" {
 }
 
 resource "tfe_workspace" "this" {
-  for_each     = var.workspaces
-  name         = each.key
-  organization = tfe_organization.this.id
-  description  = each.value.description
-  #allow_destroy_plan
-  #auto_apply
-  execution_mode = each.value.execution_mode
+  for_each           = var.workspaces
+  name               = each.key
+  organization       = tfe_organization.this.id
+  description        = each.value.description
+  allow_destroy_plan = each.value.allow_destroy_plan
+  auto_apply         = each.value.auto_apply
+  execution_mode     = each.value.execution_mode
+  terraform_version  = each.value.terraform_version
   #agent_pool_id
   #global_remote_state
   #remote_state_consumer_ids
   #queue_all_runs
   #speculative_enabled
   #ssh_key_id
-  terraform_version = each.value.terraform_version
   #file_triggers_enabled
   #trigger_prefixes
   #working_directory

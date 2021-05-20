@@ -67,7 +67,7 @@ resource "tfe_workspace" "this" {
       identifier         = vcs_repo.key
       branch             = vcs_repo.value.branch
       ingress_submodules = vcs_repo.value.ingress_submodules
-      oauth_token_id     = each.value.oauth_token_client != null ? tfe_oauth_client.this[each.value.oauth_token_client].oauth_token_id : each.value.oauth_token_id
+      oauth_token_id     = vcs_repo.value.oauth_token_client != null ? tfe_oauth_client.this[vcs_repo.value.oauth_token_client].oauth_token_id : vcs_repo.value.oauth_token_id
     }
   }
 }

@@ -7,13 +7,13 @@ The following requirements are needed by this module:
 
 - <a name="requirement_terraform"></a> [terraform](#requirement_terraform) (~>0.14)
 
-- <a name="requirement_tfe"></a> [tfe](#requirement_tfe) (0.25.2)
+- <a name="requirement_tfe"></a> [tfe](#requirement_tfe) (0.25.3)
 
 ## Providers
 
 The following providers are used by this module:
 
-- <a name="provider_tfe"></a> [tfe](#provider_tfe) (0.25.2)
+- <a name="provider_tfe"></a> [tfe](#provider_tfe) (0.25.3)
 
 ## Modules
 
@@ -23,13 +23,13 @@ No modules.
 
 The following resources are used by this module:
 
-- [tfe_oauth_client.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.2/docs/resources/oauth_client) (resource)
-- [tfe_organization.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.2/docs/resources/organization) (resource)
-- [tfe_organization_membership.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.2/docs/resources/organization_membership) (resource)
-- [tfe_registry_module.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.2/docs/resources/registry_module) (resource)
-- [tfe_team.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.2/docs/resources/team) (resource)
-- [tfe_team_organization_member.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.2/docs/resources/team_organization_member) (resource)
-- [tfe_workspace.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.2/docs/resources/workspace) (resource)
+- [tfe_oauth_client.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.3/docs/resources/oauth_client) (resource)
+- [tfe_organization.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.3/docs/resources/organization) (resource)
+- [tfe_organization_membership.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.3/docs/resources/organization_membership) (resource)
+- [tfe_registry_module.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.3/docs/resources/registry_module) (resource)
+- [tfe_team.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.3/docs/resources/team) (resource)
+- [tfe_team_organization_member.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.3/docs/resources/team_organization_member) (resource)
+- [tfe_workspace.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.3/docs/resources/workspace) (resource)
 
 ## Required Inputs
 

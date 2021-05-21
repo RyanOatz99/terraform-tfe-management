@@ -43,8 +43,10 @@ Type:
 
 ```hcl
 object({
-    name                     = string
-    email                    = string
+    name  = string
+    email = string
+    #session_timeout_minutes  = number
+    #session_remember_minutes = number
     collaborator_auth_policy = string
     members = map(object({
       # key = name
@@ -132,7 +134,11 @@ Default: `{}`
 
 ## Outputs
 
-No outputs.
+The following outputs are exported:
+
+### <a name="output_org_id"></a> [org_id](#output_org_id)
+
+Description: The ID/name of the organization.
 <!-- TF_DOCS_END -->
 
 ## Author

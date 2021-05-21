@@ -62,14 +62,17 @@ Type:
 ```hcl
 map(object({
     # key = name
-    description       = string
-    execution_mode    = string
-    terraform_version = string
+    description        = string
+    allow_destroy_plan = bool
+    auto_apply         = bool
+    execution_mode     = string
+    terraform_version  = string
     vcs_repo = map(object({
-      # key = oauth_client
-      identifier         = string
+      # key = identifier
       branch             = string
       ingress_submodules = bool
+      oauth_token_client = string
+      oauth_token_id     = string
     }))
   }))
 ```
@@ -104,8 +107,9 @@ Type:
 ```hcl
 map(object({
     # key = display_identifier
-    identifier     = string
-    oauth_token_id = string
+    identifier         = string
+    oauth_token_client = string
+    oauth_token_id     = string
   }))
 ```
 

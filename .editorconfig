@@ -7,26 +7,13 @@ end_of_line = lf
 indent_size = 2
 indent_style = space
 insert_final_newline = true
-max_line_length = 0
+max_line_length = 160
 trim_trailing_whitespace = true
 
-[*.j2]
-max_line_length = 160
-
-[*.{md,markdown}]
+[*.{md,markdown,txt}]
 indent_size = 1
 max_line_length = 0
 trim_trailing_whitespace = false
-
-[*.{sh,msx}]
-indent_size = 2
-indent_style = space
-max_line_length = 160
-
-[*.{yml,yaml}]
-indent_size = 2
-indent_style = space
-max_line_length = 160
 
 [Makefile]
 indent_size = 8

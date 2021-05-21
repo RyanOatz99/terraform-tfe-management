@@ -3,8 +3,10 @@
 variable "organization" {
   description = "Manage organization & add or remove a user from an organization."
   type = object({
-    name                     = string
-    email                    = string
+    name  = string
+    email = string
+    #session_timeout_minutes  = number
+    #session_remember_minutes = number
     collaborator_auth_policy = string
     members = map(object({
       # key = name

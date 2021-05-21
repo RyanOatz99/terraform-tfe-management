@@ -1,8 +1,10 @@
 # vim: set ft=terraform :
 
 resource "tfe_organization" "this" {
-  name                     = var.organization.name
-  email                    = var.organization.email
+  name  = var.organization.name
+  email = var.organization.email
+  #session_timeout_minutes  = var.organization.session_timeout_minutes
+  #session_remember_minutes = var.organization.session_remember_minutes
   collaborator_auth_policy = var.organization.collaborator_auth_policy
 }
 
@@ -17,6 +19,7 @@ resource "tfe_team" "this" {
   name         = each.key
   organization = tfe_organization.this.id
   visibility   = each.value.visibility
+  #organization_access {}
 }
 
 resource "tfe_team_organization_member" "this" {

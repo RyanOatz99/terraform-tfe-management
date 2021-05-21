@@ -19,17 +19,21 @@ module "simple" {
 
   workspaces = {
     "tf-simple-demo-workspace1" = {
-      description       = "Simple demo workspace with latest Terraform version"
-      execution_mode    = "remote"
-      terraform_version = null # latest
-      vcs_repo          = {}
+      description        = "Simple demo workspace with latest Terraform version"
+      execution_mode     = "remote"
+      allow_destroy_plan = true
+      auto_apply         = false
+      terraform_version  = null # latest
+      vcs_repo           = {}
     },
 
     "tf-simple-demo-workspace2" = {
-      description       = "Simple demo workspace with Terraform version 0.14.11"
-      execution_mode    = "local"
-      terraform_version = "0.14.11"
-      vcs_repo          = {}
+      description        = "Simple demo workspace with Terraform version 0.14.11"
+      execution_mode     = "local"
+      allow_destroy_plan = true
+      auto_apply         = false
+      terraform_version  = "0.14.11"
+      vcs_repo           = {}
     },
   }
 }

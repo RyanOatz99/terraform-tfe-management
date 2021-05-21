@@ -36,9 +36,11 @@ module "complete" {
 
   workspaces = {
     "tf-complete-demo-workspace1" = {
-      description       = "Complete demo workspace with latest Terraform version"
-      execution_mode    = "remote"
-      terraform_version = null # latest
+      description        = "Complete demo workspace with latest Terraform version"
+      execution_mode     = "remote"
+      allow_destroy_plan = true
+      auto_apply         = false
+      terraform_version  = null # latest
       vcs_repo = {
         "tf-complete-demo/tf-complete-demo-workspace1" = {
           branch             = "main"
@@ -50,10 +52,12 @@ module "complete" {
     },
 
     "tf-complete-demo-workspace2" = {
-      description       = "Complete demo workspace with Terraform version 0.14.11"
-      execution_mode    = "local"
-      terraform_version = "0.14.11"
-      vcs_repo          = {}
+      description        = "Complete demo workspace with Terraform version 0.14.11"
+      execution_mode     = "local"
+      allow_destroy_plan = true
+      auto_apply         = false
+      terraform_version  = "0.14.11"
+      vcs_repo           = {}
     },
 
   }

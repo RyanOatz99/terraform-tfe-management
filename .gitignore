@@ -41,6 +41,7 @@ Gemfile.lock
 *.tfstate
 *.tfstate.*
 .terraform.lock.hcl
+crash.*.log
 
 # local
 #...

@@ -41,6 +41,7 @@ module "complete" {
       allow_destroy_plan = true
       auto_apply         = false
       terraform_version  = null # latest
+      working_directory  = "demo1"
       vcs_repo = {
         "tf-complete-demo/tf-complete-demo-workspace1" = {
           branch             = "main"
@@ -57,6 +58,7 @@ module "complete" {
       allow_destroy_plan = true
       auto_apply         = false
       terraform_version  = "0.14.11"
+      working_directory  = null
       vcs_repo           = {}
     },
 

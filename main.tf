@@ -63,7 +63,7 @@ resource "tfe_workspace" "this" {
   #ssh_key_id
   #file_triggers_enabled
   #trigger_prefixes
-  #working_directory
+  working_directory = each.value.working_directory
   dynamic "vcs_repo" {
     for_each = each.value.vcs_repo
     content {

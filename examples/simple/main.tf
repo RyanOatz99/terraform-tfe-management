@@ -24,6 +24,7 @@ module "simple" {
       allow_destroy_plan = true
       auto_apply         = false
       terraform_version  = null # latest
+      working_directory  = null
       vcs_repo           = {}
     },
 
@@ -33,6 +34,7 @@ module "simple" {
       allow_destroy_plan = true
       auto_apply         = false
       terraform_version  = "0.14.11"
+      working_directory  = null
       vcs_repo           = {}
     },
   }

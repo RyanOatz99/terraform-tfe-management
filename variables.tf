@@ -55,6 +55,7 @@ variable "workspaces" {
     auto_apply         = bool
     execution_mode     = string
     terraform_version  = string
+    working_directory  = string
     vcs_repo = map(object({
       # key = identifier
       branch             = string

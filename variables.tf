@@ -65,3 +65,16 @@ variable "workspaces" {
     }))
   }))
 }
+
+variable "variables" {
+  description = "Manage workspace variables."
+  type = map(object({
+    # key = workspace/key
+    value       = string
+    category    = string # terraform or env
+    description = string
+    hcl         = bool
+    sensitive   = bool
+  }))
+  default = {}
+}

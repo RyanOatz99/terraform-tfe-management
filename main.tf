@@ -74,3 +74,14 @@ resource "tfe_workspace" "this" {
     }
   }
 }
+
+resource "tfe_variable" "this" {
+  for_each     = var.variables
+  key          = split("/", each.key)[0]
+  value        = each.value.value
+  category     = each.value.category
+  description  = each.value.description
+  hcl          = each.value.hcl
+  sensitive    = each.value.sensitive
+  workspace_id = tfe_workspace.this[split("/", each.key)[1]].id
+}

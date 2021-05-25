@@ -29,6 +29,7 @@ The following resources are used by this module:
 - [tfe_registry_module.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.3/docs/resources/registry_module) (resource)
 - [tfe_team.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.3/docs/resources/team) (resource)
 - [tfe_team_organization_member.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.3/docs/resources/team_organization_member) (resource)
+- [tfe_variable.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.3/docs/resources/variable) (resource)
 - [tfe_workspace.this](https://registry.terraform.io/providers/hashicorp/tfe/0.25.3/docs/resources/workspace) (resource)
 
 ## Required Inputs
@@ -69,6 +70,7 @@ map(object({
     auto_apply         = bool
     execution_mode     = string
     terraform_version  = string
+    working_directory  = string
     vcs_repo = map(object({
       # key = identifier
       branch             = string
@@ -127,6 +129,25 @@ Type:
 map(object({
     # key = name
     visibility = string
+  }))
+```
+
+Default: `{}`
+
+### <a name="input_variables"></a> [variables](#input_variables)
+
+Description: Manage workspace variables.
+
+Type:
+
+```hcl
+map(object({
+    # key = workspace/key
+    value       = string
+    category    = string # terraform or env
+    description = string
+    hcl         = bool
+    sensitive   = bool
   }))
 ```
 
